@@ -1,5 +1,5 @@
+// const publicApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
 const publicApiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1";
-
 export const apiConfig = {
   /** Browser → API. */
   publicUrl: publicApiUrl,
