@@ -44,7 +44,7 @@ export default async function HomePage() {
                 Shop now
               </LinkButton>
               <LinkButton href={routes.register} variant="outlined" size="large" color="secondary">
-                Join Godavari Kart
+                Join Loomi Trends
               </LinkButton>
             </Stack>
           </Stack>

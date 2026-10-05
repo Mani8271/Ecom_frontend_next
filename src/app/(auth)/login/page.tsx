@@ -18,7 +18,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
         subtitle="Login to track orders, save addresses and check out faster."
         footer={
           <>
-            New to Godavari Kart? <AppLink href={routes.register}>Create an account</AppLink>
+            New to Loomi Trends? <AppLink href={routes.register}>Create an account</AppLink>
           </>
         }
       >
