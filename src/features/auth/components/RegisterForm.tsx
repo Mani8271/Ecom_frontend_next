@@ -13,6 +13,7 @@ import { routes } from "@/config/routes";
 import { applyServerErrors } from "@/lib/forms";
 import { useAuth } from "../AuthProvider";
 import { registerSchema, type RegisterValues } from "../schemas";
+import { GoogleLoginButton } from "./GoogleLoginButton";
 
 const FIELDS = ["name", "email", "phone", "password", "password_confirmation"] as const;
 
@@ -36,16 +37,19 @@ export function RegisterForm() {
   });
 
   return (
-    <Stack component="form" spacing={2.5} onSubmit={onSubmit} noValidate>
-      {formError && <Alert severity="error">{formError}</Alert>}
-      <FormTextField control={control} name="name" label="Full name" autoComplete="name" autoFocus />
-      <FormTextField control={control} name="email" label="Email" type="email" autoComplete="email" />
-      <FormTextField control={control} name="phone" label="Mobile number (optional)" type="tel" autoComplete="tel-national" helperText="For order updates and quick OTP login" />
-      <PasswordField control={control} name="password" label="Password" autoComplete="new-password" helperText="At least 8 characters with a letter and a number" />
-      <PasswordField control={control} name="password_confirmation" label="Confirm password" autoComplete="new-password" />
-      <SubmitButton pending={formState.isSubmitting} fullWidth>
-        Create account
-      </SubmitButton>
-    </Stack>
+    <>
+      <GoogleLoginButton text="signup_with" onSuccess={() => router.replace(routes.home)} />
+      <Stack component="form" spacing={2.5} onSubmit={onSubmit} noValidate>
+        {formError && <Alert severity="error">{formError}</Alert>}
+        <FormTextField control={control} name="name" label="Full name" autoComplete="name" autoFocus />
+        <FormTextField control={control} name="email" label="Email" type="email" autoComplete="email" />
+        <FormTextField control={control} name="phone" label="Mobile number (optional)" type="tel" autoComplete="tel-national" helperText="For order updates and quick OTP login" />
+        <PasswordField control={control} name="password" label="Password" autoComplete="new-password" helperText="At least 8 characters with a letter and a number" />
+        <PasswordField control={control} name="password_confirmation" label="Confirm password" autoComplete="new-password" />
+        <SubmitButton pending={formState.isSubmitting} fullWidth>
+          Create account
+        </SubmitButton>
+      </Stack>
+    </>
   );
 }

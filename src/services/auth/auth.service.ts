@@ -6,6 +6,8 @@ export const authService = {
 
   register: (input: RegisterInput) => http.post<AuthPayload>("/auth/register", input),
 
+  googleLogin: (credential: string) => http.post<AuthPayload>("/auth/google", { credential, remember: true }),
+
   logout: () => http.post<null>("/auth/logout"),
 
   logoutAll: () => http.post<null>("/auth/logout-all"),

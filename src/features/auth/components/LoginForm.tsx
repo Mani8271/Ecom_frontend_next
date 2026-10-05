@@ -18,6 +18,7 @@ import { routes, safeRedirectPath } from "@/config/routes";
 import { applyServerErrors } from "@/lib/forms";
 import { useAuth } from "../AuthProvider";
 import { loginSchema, toLoginIdentity, type LoginValues } from "../schemas";
+import { GoogleLoginButton } from "./GoogleLoginButton";
 import { OtpLoginForm } from "./OtpLoginForm";
 
 export function LoginForm({ next }: { next?: string }) {
@@ -27,6 +28,7 @@ export function LoginForm({ next }: { next?: string }) {
 
   return (
     <>
+      <GoogleLoginButton onSuccess={() => router.replace(redirectTo)} />
       <Tabs value={mode} onChange={(_, value) => setMode(value)} variant="fullWidth" sx={{ mb: 3, borderBottom: 1, borderColor: "divider" }}>
         <Tab value="password" label="Password" />
         <Tab value="otp" label="One-time code" />
